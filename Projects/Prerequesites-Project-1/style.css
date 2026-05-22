@@ -1,0 +1,316 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+}
+
+
+.mainContainer{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+
+nav{
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+    padding: 0.8rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navLeft{
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.navLinks{
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    font-size: .90rem;
+    align-items: center;
+}
+
+.navLinks > li > a{
+    height: 1.85rem;
+}
+
+.navLinks:nth-child(2){
+    gap: 1rem;
+}
+
+.navLinks > li > a{
+    text-decoration: none;
+    color: rgb(79, 79, 79);
+}
+
+.navLinks > li > a:hover{
+    border-bottom: 3px solid rgb(91, 91, 91);
+}
+
+.navProfile{
+    border: 1px solid gray;
+    padding: .4rem;
+    font-size: 0.85rem;
+    border-radius: 50%;
+}
+
+/* Images */
+#brandLogo{
+    height: 1.4rem;
+}
+
+/* Main wrapper */
+.contentWrapper{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hero Section */
+.heroSection{
+    position: relative;
+}
+
+.heroSection img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.heroContent{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 28%;
+    left: 8%;
+    gap: 1.1rem;
+}
+
+.heroContent h2{
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
+.heroSection button{
+    width: fit-content;
+    padding: .5rem .6rem;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 2px;
+    background-color: #005da5;
+    color: white;
+    font-size: 1.1rem;
+}
+
+/* Shop Catgoeries */
+.shopcategories{
+    width: 40%;
+    margin: 4rem auto;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.shopCategory{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .2rem;
+}
+
+.shopCategory a{
+    text-decoration: underline;
+    color: rgb(46, 46, 46);
+}
+
+.shopCategory img{
+    height: 2.8rem;
+    width: 2.8rem;
+}
+
+/* shop Cards */
+.shoppingCards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 6.4rem;
+}
+
+.shopCard{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 1px 15px rgb(215, 215, 215);
+}
+
+.shopContent h4{
+    margin-bottom: .7rem;
+}
+
+.shopCardInfo button{
+    width: fit-content;
+    padding: .5rem .7rem;
+    color: rgb(223, 223, 223);
+    background-color: #005da5;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.shopCardInfo{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.shopContent{
+    width: 100%;
+}
+
+.shopContent h4{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.shopCard img{
+    width: 100%;
+}
+
+/* XBOX section */
+.xboxHeroSection{
+    overflow: hidden;
+    position: relative;
+}
+
+.xboxRight > img{
+    width: 100%;
+    object-fit: contain;
+}
+
+.xboxLeft{
+    position: absolute;
+    color: white;
+    top: 40%;
+    left: 10%;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.xboxLeft h4{
+    font-size: 2.4rem;
+}
+
+.xboxLeft button{
+    width: fit-content;
+    padding: .5rem .7rem;
+    color: rgb(223, 223, 223);
+    background-color: #005da5;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Business Cards */
+.bussinessCards{
+    margin: 4rem 0 0 0;
+}
+
+.bussinessCards h1{
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 2.4rem;
+}
+
+/* Footer Image */
+.footerImage{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.footImg img{
+    width: 100%;
+}
+
+.footText{
+    position: absolute;
+    top: 28.3%;
+    right: 10%;
+    color: white;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.footText h3{
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.footText button{
+    width: fit-content;
+    padding: .5rem .7rem;
+    color: rgb(223, 223, 223);
+    background-color: #005da5;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.socialLinksBtn{
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 3rem;
+    font-size: 1.15rem;
+}
+
+.socialLinksBtn .socialLinks > i{
+    margin-right: .45rem;
+}
+
+.footControls{
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.footControls button{
+    padding: .55rem .65rem;
+    background-color: rgb(211, 211, 211);
+    border: none;
+    color: rgb(26, 26, 26);
+}
+
+.backToTop{
+    position: absolute;
+    right: -2%;
+    top: 20%;
+}
+
+.backToTop button{
+    font-size: 1.1rem;
+}
+
+/* Footer */
+footer{
+    background-color: #f2f2f2;
+    padding: 3rem;
+}

@@ -1,0 +1,6 @@
+Basic Loops - while, do while and for
+Web API's
+TDZ
+Difference Between let, var and const
+Strings - Ways of writing strings, Immutability, inbuilt string methods, Template Literals, Slice vs Substrings,
+Functions Overview 

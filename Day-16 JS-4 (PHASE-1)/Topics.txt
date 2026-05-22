@@ -1,0 +1,14 @@
+Today's Topics Covered --
+
+Function and its Types - Function Declaration, Function Expression, Arrow Functions, Single Line Functions.
+Difference in Normal and arrow Functions
+IIFE's
+Return Statement
+Basics of Rest Parameter
+Pure and Impure Functions 
+Default Parameter
+Callback Functions
+Function as First Class Citizens
+Higher Order Functions
+
+Next Test Question - IIFE 
