@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Cohort 3.0 — Test Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0704;color:#e8d5b7;font-family:'Inter',sans-serif;font-size:13px;line-height:1.6;}
+.cover{min-height:100vh;background:linear-gradient(135deg,#0a0704 0%,#1a0e06 40%,#2d1a0a 70%,#0a0704 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;page-break-after:always;}
+.cover::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at center,rgba(180,100,20,0.08) 0%,transparent 60%);}
+.cover-badge{background:linear-gradient(135deg,#8b4513,#d4691e);padding:6px 20px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#fff;margin-bottom:24px;}
+.cover-title{font-size:52px;font-weight:900;text-align:center;line-height:1.1;background:linear-gradient(135deg,#d4691e,#f4a460,#8b4513,#ff8c00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;}
+.cover-sub{font-size:16px;color:#a08060;letter-spacing:2px;text-align:center;margin-bottom:40px;}
+.cover-divider{width:120px;height:2px;background:linear-gradient(90deg,transparent,#d4691e,transparent);margin:24px auto;}
+.cover-stats{display:flex;gap:32px;margin-top:32px;}
+.stat-box{text-align:center;background:rgba(212,105,30,0.08);border:1px solid rgba(212,105,30,0.3);border-radius:12px;padding:16px 24px;}
+.stat-num{font-size:32px;font-weight:900;color:#d4691e;}
+.stat-lbl{font-size:10px;color:#a08060;letter-spacing:2px;text-transform:uppercase;}
+.section-header{padding:24px 32px 8px;display:flex;align-items:center;gap:12px;page-break-before:always;}
+.sec-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(212,105,30,0.5),transparent);}
+.sec-title{font-size:20px;font-weight:700;color:#d4691e;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;}
+.content{padding:8px 24px 32px;}
+.card{background:linear-gradient(135deg,#110a05 0%,#1a0e06 100%);border:1px solid rgba(212,105,30,0.2);border-radius:16px;padding:20px 24px;margin-bottom:20px;position:relative;overflow:hidden;page-break-inside:avoid;}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#8b4513,#d4691e,#f4a460,#d4691e,#8b4513);}
+.q-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.q-num{background:linear-gradient(135deg,#8b4513,#d4691e);color:#fff;font-weight:700;font-size:11px;padding:4px 12px;border-radius:20px;letter-spacing:1px;}
+.q-badge{background:rgba(212,105,30,0.15);border:1px solid rgba(212,105,30,0.3);color:#d4691e;font-size:10px;padding:3px 10px;border-radius:20px;letter-spacing:1px;}
+.coding-badge{background:rgba(100,150,255,0.1);border-color:rgba(100,150,255,0.3);color:#6496ff;}
+.pts-badge{background:rgba(80,200,80,0.1);border:1px solid rgba(80,200,80,0.3);color:#50c850;font-size:10px;padding:3px 10px;border-radius:20px;}
+.diff-badge{background:rgba(255,180,50,0.1);border:1px solid rgba(255,180,50,0.3);color:#ffb432;font-size:10px;padding:3px 10px;border-radius:20px;}
+.code-snippet{background:#0d0804;border:1px solid rgba(212,105,30,0.15);border-radius:8px;padding:12px 16px;font-family:'Fira Code',monospace;font-size:12px;color:#f4a460;margin-bottom:14px;white-space:pre-wrap;}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;}
+.opt{padding:8px 14px;border-radius:8px;font-size:12px;font-weight:500;}
+.correct{background:rgba(80,200,80,0.12);border:1px solid rgba(80,200,80,0.4);color:#60d860;font-weight:600;}
+.wrong-opt{background:rgba(255,60,60,0.06);border:1px solid rgba(255,60,60,0.15);color:#c09070;}
+.answer-box{background:rgba(0,0,0,0.3);border:1px solid rgba(212,105,30,0.25);border-radius:10px;padding:14px 16px;}
+.ans-label{font-weight:700;color:#50c850;font-size:13px;margin-bottom:8px;}
+.why{color:#c8a878;font-size:12px;line-height:1.6;margin-bottom:10px;}
+.wrong-reasons{margin-top:10px;border-top:1px solid rgba(212,105,30,0.15);padding-top:10px;}
+.wr-title{font-size:11px;font-weight:700;color:#d4691e;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;}
+.wr-item{font-size:11px;color:#a08060;margin-bottom:4px;padding-left:4px;}
+.wr-key{color:#f4a460;font-weight:600;}
+.coding-title{font-size:18px;font-weight:700;color:#f4a460;margin-bottom:14px;}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.info-item{background:rgba(0,0,0,0.3);border:1px solid rgba(212,105,30,0.12);border-radius:8px;padding:10px 12px;}
+.info-label{font-size:10px;font-weight:700;color:#d4691e;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.info-val{font-size:11px;color:#c8a878;}
+.solution-label{font-size:11px;font-weight:700;color:#6496ff;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+.code-block{background:#080604;border:1px solid rgba(100,150,255,0.2);border-radius:10px;padding:16px;font-family:'Fira Code',monospace;font-size:11.5px;color:#a8d4ff;white-space:pre;overflow-x:auto;margin-bottom:14px;}
+.explain-box{background:rgba(0,0,0,0.3);border:1px solid rgba(80,200,80,0.2);border-radius:10px;padding:14px 16px;}
+.explain-title{font-size:11px;font-weight:700;color:#50c850;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+.explain-text{font-size:12px;color:#90c890;white-space:pre-wrap;font-family:'Fira Code',monospace;}
+.footer{text-align:center;padding:32px;color:#504030;font-size:11px;letter-spacing:2px;border-top:1px solid rgba(212,105,30,0.1);}
+@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="cover-badge">Cohort 3.0</div>
+  <div class="cover-title">JavaScript<br/>Test Solutions</div>
+  <div class="cover-sub">Complete Q&amp;A with Explanations</div>
+  <div class="cover-divider"></div>
+  <div class="cover-stats">
+    <div class="stat-box"><div class="stat-num">17</div><div class="stat-lbl">MCQ Questions</div></div>
+    <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">Coding Problems</div></div>
+  </div>
+</div>
+
+<div class="section-header">
+  <div class="sec-title">MCQ Questions</div>
+  <div class="sec-line"></div>
+</div>
+<div class="content">
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q1</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">console.log("10" - "5");</pre>
+      <div class="options">
+        <div class="opt wrong-opt"> A) 105</div><div class="opt correct">✓ B) 5</div><div class="opt wrong-opt"> C) NaN</div><div class="opt wrong-opt"> D) Error</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: B</div>
+        <p class="why">"10" - "5" = 5. The minus operator converts strings to numbers automatically. Only + concatenates strings; all other math operators force number conversion.</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">A)</span> + concatenates strings, but - does not. No concatenation here.</div><div class="wr-item"><span class="wr-key">C)</span> NaN only when conversion fails (e.g., "hello"-5). "10" and "5" are valid numbers.</div><div class="wr-item"><span class="wr-key">D)</span> JS never throws errors for basic arithmetic type coercion.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q2</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">console.log(0 == false);
+console.log(0 === false);</pre>
+      <div class="options">
+        <div class="opt wrong-opt"> A) true true</div><div class="opt wrong-opt"> B) false false</div><div class="opt correct">✓ C) true false</div><div class="opt wrong-opt"> D) false true</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: C</div>
+        <p class="why">== does loose comparison: false → 0, so 0==false is true. === checks type too: 0 is number, false is boolean → false.</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">A)</span> === never converts types, so 0===false is always false.</div><div class="wr-item"><span class="wr-key">B)</span> == does convert, so 0==false IS true.</div><div class="wr-item"><span class="wr-key">D)</span> 0==false is true, not false.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q3</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">console.log("hello" - 2);</pre>
+      <div class="options">
+        <div class="opt wrong-opt"> A) hello2</div><div class="opt wrong-opt"> B) undefined</div><div class="opt correct">✓ C) NaN</div><div class="opt wrong-opt"> D) Error</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: C</div>
+        <p class="why">"hello" cannot be converted to a number, so it becomes NaN. NaN - 2 = NaN.</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">A)</span> Only + can concatenate strings. - always tries math.</div><div class="wr-item"><span class="wr-key">B)</span> undefined is a variable value, not an arithmetic result.</div><div class="wr-item"><span class="wr-key">D)</span> JS does not throw errors for NaN arithmetic.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q4</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">let x = 5;
+console.log(x++);
+console.log(++x);</pre>
+      <div class="options">
+        <div class="opt correct">✓ A) 5 7</div><div class="opt wrong-opt"> B) 6 7</div><div class="opt wrong-opt"> C) 5 6</div><div class="opt wrong-opt"> D) 6 6</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: A</div>
+        <p class="why">x++ returns current value (5) THEN increments (x=6). ++x increments first (x=7) THEN returns (7). So: 5 then 7.</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">B)</span> x++ prints BEFORE incrementing, so first output is 5.</div><div class="wr-item"><span class="wr-key">C)</span> After x++, x=6. ++x makes it 7, not 6.</div><div class="wr-item"><span class="wr-key">D)</span> x++ does increment, so x becomes 6, then ++x makes it 7.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q5</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">console.log(5 ____ "5"); // should be false</pre>
+      <div class="options">
+        <div class="opt wrong-opt"> A) ==</div><div class="opt wrong-opt"> B) =</div><div class="opt correct">✓ C) ===</div><div class="opt wrong-opt"> D) !=</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: C</div>
+        <p class="why">5 === "5" is false because types differ (number vs string). === checks both value AND type.</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">A)</span> 5 == "5" is true (loose comparison converts "5" to 5).</div><div class="wr-item"><span class="wr-key">B)</span> = is assignment, not comparison.</div><div class="wr-item"><span class="wr-key">D)</span> 5 != "5" is false because == sees them as equal, so != gives false.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q6</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">if( ____ ){
+  console.log("Run");
+}
+// Need a falsy value</pre>
+      <div class="options">
+        <div class="opt wrong-opt"> A) []</div><div class="opt wrong-opt"> B) "false"</div><div class="opt correct">✓ C) 0</div><div class="opt wrong-opt"> D) {}</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: C</div>
+        <p class="why">0 is falsy in JS. Falsy values: 0, "", null, undefined, NaN, false. The block will NOT run.</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">A)</span> [] (empty array) is truthy! Arrays are objects and always truthy.</div><div class="wr-item"><span class="wr-key">B)</span> "false" is a non-empty string → truthy.</div><div class="wr-item"><span class="wr-key">D)</span> {} (empty object) is truthy! Objects are always truthy.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q7</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">let day = "Sunday";
+switch(day){
+  case "Saturday":
+  case ____:
+    console.log("Weekend");
+}</pre>
+      <div class="options">
+        <div class="opt wrong-opt"> A) Sunday</div><div class="opt correct">✓ B) "Sunday"</div><div class="opt wrong-opt"> C) sunday</div><div class="opt wrong-opt"> D) "weekend"</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: B</div>
+        <p class="why">switch uses === comparison. day = "Sunday" (string). So case must be "Sunday" (string with quotes).</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">A)</span> Sunday without quotes is a variable name, not the string "Sunday".</div><div class="wr-item"><span class="wr-key">C)</span> "sunday" is lowercase — JS is case-sensitive.</div><div class="wr-item"><span class="wr-key">D)</span> "weekend" doesn't match "Sunday" at all.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q8</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">console.log(true + true + false);</pre>
+      <div class="options">
+        <div class="opt wrong-opt"> A) true</div><div class="opt wrong-opt"> B) false</div><div class="opt correct">✓ C) 2</div><div class="opt wrong-opt"> D) 0</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: C</div>
+        <p class="why">Booleans convert to numbers in math: true=1, false=0. So 1+1+0 = 2.</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">A)</span> true is not returned; numeric addition happens.</div><div class="wr-item"><span class="wr-key">B)</span> false would be 0.</div><div class="wr-item"><span class="wr-key">D)</span> 0 would need false+false+false.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q9</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">console.log(x);
+var x = 10;</pre>
+      <div class="options">
+        <div class="opt wrong-opt"> A) Error</div><div class="opt correct">✓ B) undefined</div><div class="opt wrong-opt"> C) 10</div><div class="opt wrong-opt"> D) null</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: B</div>
+        <p class="why">var is hoisted to top of scope but NOT initialized. So x exists but = undefined before assignment.</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">A)</span> var hoisting prevents ReferenceError. Only let/const throw errors.</div><div class="wr-item"><span class="wr-key">C)</span> x is declared AFTER the log, so value is not 10 yet.</div><div class="wr-item"><span class="wr-key">D)</span> null is an intentional empty value. Hoisting gives undefined.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q10</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">console.log(a);
+let a = 5;</pre>
+      <div class="options">
+        <div class="opt wrong-opt"> A) undefined</div><div class="opt wrong-opt"> B) 5</div><div class="opt wrong-opt"> C) null</div><div class="opt correct">✓ D) ReferenceError</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: D</div>
+        <p class="why">let is in Temporal Dead Zone (TDZ) before declaration. Accessing it throws ReferenceError.</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">A)</span> undefined is for var hoisting. let/const have TDZ.</div><div class="wr-item"><span class="wr-key">B)</span> a has no value yet at that point.</div><div class="wr-item"><span class="wr-key">C)</span> null is intentional empty value, not what hoisting gives.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q11</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">{
+  var x = 50;
+}
+console.log(x);</pre>
+      <div class="options">
+        <div class="opt correct">✓ A) 50</div><div class="opt wrong-opt"> B) undefined</div><div class="opt wrong-opt"> C) Error</div><div class="opt wrong-opt"> D) null</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: A</div>
+        <p class="why">var ignores block scope {}. It leaks to the function/global scope. So x=50 is accessible outside the block.</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">B)</span> undefined would happen if x was declared but not assigned.</div><div class="wr-item"><span class="wr-key">C)</span> No error — var is global/function scoped.</div><div class="wr-item"><span class="wr-key">D)</span> null is never assigned here.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q12</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">console.log(typeof null);</pre>
+      <div class="options">
+        <div class="opt wrong-opt"> A) null</div><div class="opt wrong-opt"> B) undefined</div><div class="opt correct">✓ C) object</div><div class="opt wrong-opt"> D) number</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: C</div>
+        <p class="why">This is a famous JS bug! typeof null returns "object" due to a legacy error from the early days of JavaScript.</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">A)</span> "null" is what you'd expect, but JS returns "object".</div><div class="wr-item"><span class="wr-key">B)</span> "undefined" is typeof undefined.</div><div class="wr-item"><span class="wr-key">D)</span> "number" is typeof 42.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q13</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">Which of these are non-primitive data types?</pre>
+      <div class="options">
+        <div class="opt wrong-opt"> A) string</div><div class="opt correct">✓ B) objects</div><div class="opt wrong-opt"> C) number</div><div class="opt correct">✓ D) array</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: B and D</div>
+        <p class="why">Objects and Arrays are non-primitive (reference types). Primitives: string, number, boolean, null, undefined, symbol, bigint.</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">A)</span> string is a primitive data type.</div><div class="wr-item"><span class="wr-key">C)</span> number is a primitive data type.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q14</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">let a;
+let b = null;
+console.log(a == b);</pre>
+      <div class="options">
+        <div class="opt wrong-opt"> A) false</div><div class="opt correct">✓ B) true</div><div class="opt wrong-opt"> C) undefined</div><div class="opt wrong-opt"> D) Error</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: B</div>
+        <p class="why">undefined == null is true in JS (special rule). They are loosely equal to each other and nothing else.</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">A)</span> JS has a special rule: null == undefined is true.</div><div class="wr-item"><span class="wr-key">C)</span> undefined is a value, but console.log prints true/false.</div><div class="wr-item"><span class="wr-key">D)</span> No error; loose comparison is valid.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q15</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">console.log( ____ ("42")); // should output 42 (number)</pre>
+      <div class="options">
+        <div class="opt wrong-opt"> A) parse</div><div class="opt wrong-opt"> B) String</div><div class="opt wrong-opt"> C) Boolean</div><div class="opt correct">✓ D) Number</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: D</div>
+        <p class="why">Number("42") converts the string "42" to the number 42.</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">A)</span> parse is not a standalone function. parseInt("42") works, but parse() alone doesn't exist.</div><div class="wr-item"><span class="wr-key">B)</span> String() converts TO string, not from string.</div><div class="wr-item"><span class="wr-key">C)</span> Boolean("42") gives true, not 42.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q16</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">What will be the return value of prompt() by default?</pre>
+      <div class="options">
+        <div class="opt wrong-opt"> A) number</div><div class="opt wrong-opt"> B) boolean</div><div class="opt correct">✓ C) string</div><div class="opt wrong-opt"> D) object</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: C</div>
+        <p class="why">prompt() always returns a string — even if user types "42", you get "42" as string. Use Number() to convert.</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">A)</span> Never number — always string, even for numeric input.</div><div class="wr-item"><span class="wr-key">B)</span> Never boolean.</div><div class="wr-item"><span class="wr-key">D)</span> Never object.</div></div>
+      </div>
+    </div>
+    <div class="card mcq-card">
+      <div class="q-header">
+        <span class="q-num">Q17</span>
+        <span class="q-badge">MCQ</span>
+      </div>
+      <pre class="code-snippet">console.log([] + []);</pre>
+      <div class="options">
+        <div class="opt wrong-opt"> A) []</div><div class="opt wrong-opt"> B) 0</div><div class="opt correct">✓ C) ""</div><div class="opt wrong-opt"> D) Error</div>
+      </div>
+      <div class="answer-box">
+        <div class="ans-label">✅ Answer: C</div>
+        <p class="why">[] converts to "" (empty string) when used with +. So "" + "" = "".</p>
+        <div class="wrong-reasons"><div class="wr-title">❌ Why others are wrong:</div><div class="wr-item"><span class="wr-key">A)</span> Arrays don't stay as arrays with + operator.</div><div class="wr-item"><span class="wr-key">B)</span> 0 would come from numeric coercion, not string coercion.</div><div class="wr-item"><span class="wr-key">D)</span> No error; JS coerces arrays to strings.</div></div>
+      </div>
+    </div></div>
+
+<div class="section-header">
+  <div class="sec-title">Coding Problems</div>
+  <div class="sec-line"></div>
+</div>
+<div class="content">
+    <div class="card coding-card">
+      <div class="q-header">
+        <span class="q-num">Coding 1</span>
+        <span class="q-badge coding-badge">Math</span>
+        <span class="pts-badge">100 pts</span>
+        <span class="diff-badge">easy</span>
+      </div>
+      <h3 class="coding-title">Check if a Number is a Power of Two</h3>
+      <div class="info-grid">
+        <div class="info-item"><div class="info-label">Problem</div><div class="info-val">Given an integer n, return true if n is a power of two (can be written as 2^x where x ≥ 0), otherwise return false.</div></div>
+        <div class="info-item"><div class="info-label">Input</div><div class="info-val">A single integer n</div></div>
+        <div class="info-item"><div class="info-label">Output</div><div class="info-val">Return true if n is a power of two, false otherwise</div></div>
+        <div class="info-item"><div class="info-label">Constraint</div><div class="info-val">-2³¹ ≤ n ≤ 2³¹ - 1</div></div>
+      </div>
+      <div class="solution-label">💡 Solution</div>
+      <pre class="code-block">class Solution {
+  isPowerOfTwo(n) {
+    for (let i = 1; i <= n; i = i * 2) {
+      if (i === n) return true;
+    }
+    return false;
+  }
+}
+module.exports = Solution;</pre>
+      <div class="explain-box">
+        <div class="explain-title">🧠 How it works (Beginner Friendly)</div>
+        <pre class="explain-text">Start i at 1. Keep multiplying by 2: 1→2→4→8→16...
+If i ever equals n exactly → it's a power of two!
+If i exceeds n without matching → not a power of two.
+Edge: n ≤ 0 → loop never runs → returns false. ✓</pre>
+      </div>
+    </div>
+    <div class="card coding-card">
+      <div class="q-header">
+        <span class="q-num">Coding 2</span>
+        <span class="q-badge coding-badge">Loop</span>
+        <span class="pts-badge">70 pts</span>
+        <span class="diff-badge">easy</span>
+      </div>
+      <h3 class="coding-title">Check if a Number is a Perfect Square</h3>
+      <div class="info-grid">
+        <div class="info-item"><div class="info-label">Problem</div><div class="info-val">Check whether a given integer is a Perfect Square. A number is a perfect square if it equals some integer × itself. Return "Yes" or "No".</div></div>
+        <div class="info-item"><div class="info-label">Input</div><div class="info-val">Integer Number</div></div>
+        <div class="info-item"><div class="info-label">Output</div><div class="info-val">Return "Yes" or "No"</div></div>
+        <div class="info-item"><div class="info-label">Constraint</div><div class="info-val">Non-negative integer, range 0 to 10⁶</div></div>
+      </div>
+      <div class="solution-label">💡 Solution</div>
+      <pre class="code-block">class Solution {
+  isPerfectSquare(n) {
+    for (let i = 0; i * i <= n; i++) {
+      if (i * i === n) return "Yes";
+    }
+    return "No";
+  }
+}
+module.exports = Solution;</pre>
+      <div class="explain-box">
+        <div class="explain-title">🧠 How it works (Beginner Friendly)</div>
+        <pre class="explain-text">Try every number i starting from 0.
+Check if i × i equals n.
+If yes → "Yes"! If i×i exceeds n → "No".
+Example: n=16 → 0,1,2,3,4 → 4×4=16 → "Yes"
+Example: n=15 → 0,1,2,3,4 → 4×4=16>15 → "No"</pre>
+      </div>
+    </div>
+    <div class="card coding-card">
+      <div class="q-header">
+        <span class="q-num">Coding 3</span>
+        <span class="q-badge coding-badge">Loop</span>
+        <span class="pts-badge">100 pts</span>
+        <span class="diff-badge">easy</span>
+      </div>
+      <h3 class="coding-title">Check if a Number is Palindromic</h3>
+      <div class="info-grid">
+        <div class="info-item"><div class="info-label">Problem</div><div class="info-val">Accept a positive integer and check if it is a palindrome (reads the same forwards and backwards). Return true or false.</div></div>
+        <div class="info-item"><div class="info-label">Input</div><div class="info-val">Integer number</div></div>
+        <div class="info-item"><div class="info-label">Output</div><div class="info-val">Return true or false</div></div>
+        <div class="info-item"><div class="info-label">Constraint</div><div class="info-val">Positive integer in range 1 to 1,000,000. No negative numbers or non-numeric characters.</div></div>
+      </div>
+      <div class="solution-label">💡 Solution</div>
+      <pre class="code-block">class Solution {
+  isPalindrome(n) {
+    const s = String(n);
+    return s === s.split("").reverse().join("");
+  }
+}
+module.exports = Solution;</pre>
+      <div class="explain-box">
+        <div class="explain-title">🧠 How it works (Beginner Friendly)</div>
+        <pre class="explain-text">Convert number to string: 121 → "121"
+Split into array: ["1","2","1"]
+Reverse: ["1","2","1"]
+Join back: "121"
+Compare original "121" === "121" → true!
+For 123: reverse = "321" → "123" !== "321" → false</pre>
+      </div>
+    </div></div>
+
+<div class="footer">COHORT 3.0 — JavaScript Test Solutions &nbsp;|&nbsp; Beginner Friendly Reference<br/><br/><span style="color:#d4691e; font-weight:700; font-size:14px;">- Punit Sahu</span></div>
+</body>
+</html>

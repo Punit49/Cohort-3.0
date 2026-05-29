@@ -1,0 +1,366 @@
+Cohort 3.0
+1
+String Minus String:
+
+console.log("10" - "5");
+A) 105
+B) 5
+Correct Selection
+C) NaN
+D) Error
+2
+Guess the output:
+
+console.log(0 == false);
+console.log(0 === false);
+A) true true
+B) false false
+C) true false
+Correct Selection
+D) false true
+3
+Question Text
+
+console.log("hello" - 2);
+A) hello2
+B) undefined
+C) NaN
+Correct Selection
+D) Error
+4
+Question Text
+
+let x = 5;
+
+console.log(x++);
+console.log(++x);
+A) 5 7
+Correct Selection
+B) 6 7
+C) 5 6
+D) 6 6
+5
+complete this code for false value.
+
+console.log(5 ____ "5");
+A. ==
+B. =
+C. ===
+Correct Selection
+D. !=
+6
+choose the falsy value:
+
+if( ____ ){
+   console.log("Run");
+}
+A. []
+B. "false"
+C. 0
+Correct Selection
+D. {}
+7
+Choose option for print "Weekend":
+
+let day = "Sunday";
+
+switch(day){
+   case "Saturday":
+   case ____:
+      console.log("Weekend");
+}
+A. Sunday
+B. "Sunday"
+Correct Selection
+C. sunday
+D. "weekend"
+8
+Guess the output: 
+
+console.log(true + true + false);
+true
+false
+2
+Correct Selection
+0
+9
+Predict output: 
+
+console.log(x);
+
+var x = 10;
+A. Error
+B. undefined
+Correct Selection
+C. 10
+D. null
+10
+Predict output
+
+console.log(a);
+
+let a = 5;
+A. undefined
+B. 5
+C. null
+D. ReferenceError
+Correct Selection
+11
+Predict Output
+
+{
+   var x = 50;
+}
+
+console.log(x);
+A. 50
+Correct Selection
+B. undefined
+C. Error
+D. null
+12
+Predict Output:
+
+console.log(typeof null);
+A. null
+B. undefined
+C. object
+Correct Selection
+D. number
+13
+which of these are  non-primitive datatype?
+A. string
+B. objects
+Correct Selection
+C. number
+D. array
+Correct Selection
+14
+undefined vs null.
+
+let a;
+let b = null;
+
+console.log(a == b);
+A. false
+B. true
+Correct Selection
+C. undefined
+D. Error
+15
+Fill in the blank so that We get 42 .
+
+console.log( ____ ("42"));
+A. parse
+B. String
+C. Boolean
+D. Number
+Correct Selection
+16
+what will be the return value of prompt() by default;
+A. number
+B. boolean
+C. string
+Correct Selection
+D. object
+17
+console.log([] + []);
+A. []
+B. 0
+C. ""
+Correct Selection
+D. Error
+Check if a Number is a Power of Two
+easy
+100 Points
+Math
+Problem
+
+Given an integer n, your task is to return true if n is a power of two, otherwise return false. A number n is a power of two if it can be written as 2^x where x is a non-negative integer.
+
+Input Format
+A single integer n
+Output Format
+Return true if n is a power of two, false otherwise
+Constraints
+-2^31 <= n <= 2^31 - 1
+Result
+Accepted
+Score: 100
+Attempts: 1
+Language: javascript
+Code Editor
+Language
+javascript
+python
+java
+c++
+Value: 217 chars
+Reset Boilerplate
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+        for(let i = 1; i <= n; i = i * 2){
+            if(i === n){
+                return true;
+            }
+        }
+        return false;
+    }
+}
+module.exports = Solution;
+1
+2
+3
+class Solution {
+    isPowerOfTwo(n) {
+        for(let i = 1; i <= n; i = i * 2){
+Testcase
+Result
+Visible: 2
+Hidden: 0
+
+Last Submission
+
+Accepted
+Score: 100
+Language: javascript
+Submission ID: 6a106ff58b4fa6f917a6c28c
+Last Tried: 22-May-2026 08:32 PM
+
+Click Run to see output and execution response here.
+
+Run
+Submit
+Check if a number is a perfect square
+easy
+70 Points
+Loop
+Problem
+
+Write a program that accepts an integer and checks whether it is a Perfect Square or not. A number is said to be a perfect square if it can be expressed as the square of some integer.
+
+For example:
+
+16 is a perfect square because 4 × 4 = 16.
+15 is not a perfect square because there is no integer whose square equals 15.
+
+Input Format
+Integer Number
+Output Format
+return "Yes" or "No"
+Constraints
+The input number will be a non-negative integer.
+Input will be in the range of 0 to 10^6
+Result
+Accepted
+Score: 70
+Attempts: 1
+Language: javascript
+Code Editor
+Language
+javascript
+python
+java
+c++
+Value: 118 chars
+Reset Boilerplate
+1
+2
+3
+4
+5
+6
+7
+8
+class Solution {
+    isPerfectSquare(n) {
+        // Write your code here
+        
+    }
+}
+module.exports = Solution;
+Testcase
+Result
+Visible: 2
+Hidden: 0
+
+Last Submission
+
+Accepted
+Score: 70
+Language: javascript
+Submission ID: 6a10706c8b4fa6f917a6d321
+Last Tried: 22-May-2026 08:34 PM
+
+Click Run to see output and execution response here.
+
+Run
+Submit
+Check if a Number is Palindromic
+easy
+100 Points
+Loop
+Problem
+
+Write a program that accepts a positive integer as input and checks if the number is a palindrome. A number is said to be palindromic if it remains the same when its digits are reversed.
+
+Input Format
+integer number
+Output Format
+return true or false
+Constraints
+The input number will be a positive integer in the range 1 to 1,000,000.
+The input will not contain negative numbers or non-numeric characters.
+Result
+Accepted
+Score: 100
+Attempts: 1
+Language: javascript
+Code Editor
+Language
+javascript
+python
+java
+c++
+Value: 115 chars
+Reset Boilerplate
+1
+2
+3
+4
+5
+6
+7
+8
+class Solution {
+    isPalindrome(n) {
+        // Write your code here
+        
+    }
+}
+module.exports = Solution;
+Testcase
+Result
+Visible: 2
+Hidden: 0
+
+Last Submission
+
+Accepted
+Score: 100
+Language: javascript
+Submission ID: 6a10712a8b4fa6f917a6ee68
+Last Tried: 22-May-2026 08:37 PM
+
+Click Run to see output and execution response here.
+
+Run
+Submit

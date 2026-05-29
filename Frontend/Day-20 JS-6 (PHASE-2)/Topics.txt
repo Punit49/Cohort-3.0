@@ -1,0 +1,3 @@
+Objects - Objects and CRUD operations on them
+Object Methods = keys, values, entries
+Arrays as Objects

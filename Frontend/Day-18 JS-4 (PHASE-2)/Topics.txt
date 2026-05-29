@@ -1,0 +1,20 @@
+Heap Variable - ?
+
+--- Today's Topics Covered --- 
+
+Array - Need of array, What is array,           
+        Indexing.
+Array Methods - Push, pop, shift, unshift, splice, slice
+                Reverse, 2D arrays, sort, iteration (for & forof loop), concat, 
+                indexOf, includes, split, join, 
+Why arrays are refernced data type (reference behaviour)
+Spread Operator
+
+
+arr[-1] = 99;
+sort - default string
+
+
+[15, 45, 78, 90, 78]
+
+1, 67, 99, 78, 89, 89
