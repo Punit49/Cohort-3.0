@@ -1,0 +1,405 @@
+Cohort 3.0
+1
+Which statement is correct?
+A. Function declarations and function expressions are exactly the same.
+B. Function declarations are hoisted, while function expressions are not hoisted in the same way.
+Correct Selection
+C. Function expressions are hoisted, but function declarations are not.
+D. Neither is hoisted.
+2
+Which statement is technically correct?
+A. Parameters and arguments are the same thing.
+B. Parameters are values passed during a function call.
+C. Arguments are placeholders in a function definition.
+D. Parameters are placeholders, while arguments are actual values passed to the function.
+Correct Selection
+3
+Which situation is generally NOT recommended for arrow functions?
+A. Utility/helper functions
+B. Single-expression functions
+C. Object methods that rely on this
+Correct Selection
+D. Callback functions
+4
+When is a default parameter value used?
+A. When any falsy value is passed.
+B. Only when the argument is undefined or omitted.
+Correct Selection
+C. When null is passed.
+D. When an empty string is passed.
+5
+Which statement about rest parameters is true?
+A. Rest parameters must always be the first parameter.
+B. A function can have multiple rest parameters.
+C. Rest parameters collect remaining arguments into an array.
+Correct Selection
+D. Rest parameters store arguments as an object.
+6
+Which statement about return is true?
+A. A function can execute multiple return statements in a single call.
+B. return pauses a function and resumes later.
+C. Once a return executes, the function immediately exits.
+Correct Selection
+D. return can only return primitive values.
+7
+Which capability directly results from functions being first-class citizens?
+A. Functions can only be declared globally.
+B. Functions can be stored in variables and passed to other functions.
+Correct Selection
+C. Functions automatically become callbacks.
+D. Functions cannot be returned from other functions.
+8
+Every callback function is:
+A. Recursive
+B. Anonymous
+C. Passed to another function for later execution
+Correct Selection
+D. A higher-order function
+9
+Which statement is true?
+A. Every callback is a higher-order function.
+B. Every higher-order function is a callback.
+C. A function that accepts another function or returns one is a higher-order function.
+Correct Selection
+D. Higher-order functions must be recursive.
+10
+Why are anonymous functions commonly used as callbacks?
+A. They execute faster.
+B. They reduce memory usage.
+C. They are often needed only once and don't require a name.
+Correct Selection
+D. JavaScript requires callbacks to be anonymous.
+11
+Historically, what was the primary purpose of IIFEs?
+A. Improving recursion performance
+B. Creating private scope and avoiding global variable pollution
+Correct Selection
+C. Replacing loops
+D. Making functions asynchronous
+12
+Which characteristic is NOT required for a function to be pure?
+A. Same input should produce the same output.
+B. No side effects.
+C. Must use only local variables.
+Correct Selection
+D. Predictable behavior.
+13
+A function becomes impure if it:
+A. Uses parameters.
+B. Uses loops.
+C. Modifies external state or depends on changing external data.
+Correct Selection
+D. Returns an object.
+14
+Which condition is essential for recursion to terminate?
+A. Callback function
+B. Base case
+Correct Selection
+C. Arrow function
+D. Rest parameter
+15
+Which description best represents recursion?
+A. Solving a problem by repeatedly creating larger versions of it.
+B. Solving a problem by reducing it into smaller versions of the same problem.
+Correct Selection
+C. Executing multiple functions simultaneously.
+D. Repeating code without function calls.
+Highest Scoring Student
+easy
+50 Points
+Array 3.0
+Problem
+
+You are given an array of student objects. Each student has a name and marks.
+
+Return the name of the student who has the highest marks.
+
+If multiple students have the same highest marks, return the first one.
+
+Input Format
+N = number of students. Each of the next N lines contains a student's name and marks. Input: 3 Aman 85 Priya 92 Raj 78
+Output Format
+Name of the highest scoring student Output : priya
+Constraints
+1 <= N <= 100000
+1 <= name.length <= 50
+0 <= marks <= 100
+Result
+Accepted
+Score: 50
+Attempts: 1
+Language: javascript
+Code Editor
+Language
+javascript
+python
+java
+c++
+Value: 102 chars
+Reset Boilerplate
+1
+2
+3
+4
+5
+6
+function highestScorer(students) {
+    // Write your code here
+}
+module.exports = { highestScorer };
+Testcase
+Result
+Visible: 2
+Hidden: 0
+
+Last Submission
+
+Accepted
+Score: 50
+Language: javascript
+Submission ID: 6a1afdd0c56796b0fba9b5f6
+Last Tried: 30-May-2026 08:40 PM
+
+Click Run to see output and execution response here.
+
+Run
+Submit
+Count Word Frequency
+easy
+50 Points
+Array 3.0
+Problem
+
+Given a string text, return an object containing the frequency of each word.
+
+Words are case-insensitive.
+
+Input Format
+A single line containing a string text Input: JavaScript is fun
+Output Format
+return an object/dictionary where: key = word (in lowercase) value = frequency of that word Output: javascript: 1, is: 1, fun: 1
+Constraints
+1 <= text.length <= 10^5
+Text contains only: - English letters (a-z, A-Z)
+Spaces Words are separated by single or multiple spaces.
+Result
+Accepted
+Score: 50
+Attempts: 1
+Language: javascript
+Code Editor
+Language
+javascript
+Value: 97 chars
+Reset Boilerplate
+1
+2
+3
+4
+5
+function wordFrequency(text) {
+    // Write your code here
+}
+module.exports = { wordFrequency };
+Testcase
+Result
+Visible: 2
+Hidden: 0
+
+Last Submission
+
+Accepted
+Score: 50
+Language: javascript
+Submission ID: 6a1aff18c56796b0fba9d459
+Last Tried: 30-May-2026 08:45 PM
+
+Click Run to see output and execution response here.
+
+Run
+Submit
+Find Missing Product
+easy
+50 Points
+Array 3.0
+Problem
+
+You are given two arrays.
+
+products contains all product IDs.
+sold contains IDs of sold products.
+
+Return an array of product IDs that were never sold.
+
+Input Format
+n p1 p2 p3 ... pn m s1 s2 s3 ... sm
+Output Format
+Space-separated product IDs that were never sold
+Constraints
+1 <= n <= 10^5
+0 <= m <= n
+0 <= productID <= 10^9
+Result
+Accepted
+Score: 50
+Attempts: 1
+Language: javascript
+Code Editor
+Language
+javascript
+python
+java
+c++
+Value: 110 chars
+Reset Boilerplate
+1
+2
+3
+4
+5
+6
+function unsoldProducts(products, sold) {
+    // Write your code here
+}
+module.exports = { unsoldProducts };
+Testcase
+Result
+Visible: 2
+Hidden: 0
+
+Last Submission
+
+Accepted
+Score: 50
+Language: javascript
+Submission ID: 6a1b02f4c56796b0fbaa3156
+Last Tried: 30-May-2026 09:02 PM
+
+Click Run to see output and execution response here.
+
+Run
+Submit
+Department Salary Report
+easy
+50 Points
+Problem
+
+Given an array of employees, calculate the total salary for each department.
+
+Return an object where:
+
+key = department name
+value = total salary
+
+Input Format
+N name1 department1 salary1 name2 department2 salary2 input: 4 A IT 1000 B IT 2000 C HR 3000 D HR 4000 ... nameN departmentN salaryN
+Output Format
+Print an object (dictionary/map) where: key = department value = total salary output: IT: 3000, HR: 7000
+Constraints
+1 <= N <= 10^5
+1 <= salary <= 10^9
+1 <= length of name, department <= 50
+Result
+Accepted
+Score: 50
+Attempts: 1
+Language: javascript
+Code Editor
+Language
+javascript
+Value: 109 chars
+Reset Boilerplate
+1
+2
+3
+4
+5
+6
+function departmentSalary(employees) {
+    // Write your code here
+}
+module.exports = { departmentSalary };
+Testcase
+Result
+Visible: 3
+Hidden: 0
+
+Last Submission
+
+Accepted
+Score: 50
+Language: javascript
+Submission ID: 6a1b027bc56796b0fbaa24c3
+Last Tried: 30-May-2026 09:00 PM
+
+Click Run to see output and execution response here.
+
+Run
+Submit
+Most Frequent Element
+easy
+50 Points
+Array 3.0
+Problem
+
+Given an integer array nums, return the element that appears most frequently.
+
+If multiple elements have the same frequency, return the smallest element among them.
+
+Input Format
+N num1 num2 num3 ... numN Input: 5 1 2 2 3 3
+Output Format
+Single integer → most frequent element Output: 2
+Constraints
+1 <= N <= 10^5
+-10^9 <= nums[i] <= 10^9
+Result
+Accepted
+Score: 50
+Attempts: 1
+Language: javascript
+Code Editor
+Language
+javascript
+python
+java
+c++
+Value: 109 chars
+Reset Boilerplate
+1
+2
+3
+4
+5
+function mostFrequentElement(nums) {
+    // Write your code here
+}
+module.exports = { mostFrequentElement };
+Testcase
+Result
+Visible: 2
+Hidden: 0
+
+Last Submission
+
+Accepted
+Score: 50
+Language: javascript
+Submission ID: 6a1b01f3c56796b0fbaa19bd
+Last Tried: 30-May-2026 08:57 PM
+
+Click Run to see output and execution response here.
+
+Run
+Submit
+Close
+Home
+Home
+Courses
+Courses
+Bootcamp
+Bootcamp
+Classroom
+Classroom
+Request Callback
+Request Callback

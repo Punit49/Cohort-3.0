@@ -1,0 +1,6 @@
+this ki value bina strict mode me normally way like in global and normal function is 
+
+
+-- Topics Covered -- 
+this keyword in detailed, 
+introduction to oops - function constructor 

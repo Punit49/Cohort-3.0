@@ -1,1 +1,1 @@
-Array Functions - forEach, Map, filter, reduce 
+Array Functions - forEach, Map, filter, reduce Day 19 completed. Today covered array methods in depth — forEach, map, filter, find, every, some, reduce, and destructuring. Every class adds a new layer of understanding.

@@ -53,4 +53,4 @@ console.log(ans);
 
 // How to seal array
 
-find, findindex, some every, destructuring, skip values, 
+// find, findindex, some every, destructuring, skip values, 

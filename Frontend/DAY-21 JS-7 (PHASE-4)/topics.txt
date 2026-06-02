@@ -1,0 +1,3 @@
+this, window object, types of errors, strict mode, call, apply and bind
+prototypal inheritance, prototypal 
+

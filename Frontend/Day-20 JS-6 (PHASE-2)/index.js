@@ -30,3 +30,20 @@ console.log(180 + user.college.courses[2]);
 console.log(obj.skills[2]);
 
 // Typeof of function expression
+
+/* Bhaiya Please Explain this - 
+function outer(){
+    var num1 = 10;
+
+    function inner(){
+        console.log(num1);
+        console.log(num2);
+    } 
+
+    var num2 = 20;
+
+    return inner();
+}
+
+const output = outer();
+output(); */
