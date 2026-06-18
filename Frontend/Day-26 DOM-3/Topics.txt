@@ -1,0 +1,5 @@
+input.value vs input.getAttribute
+
+append, vs appendCHild, prepand, createELement, dataset, removeChild, insertBefore, 
+before, after, replaceCHild and replaceWith
+

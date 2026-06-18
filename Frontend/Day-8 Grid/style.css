@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'helvetica neue';
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    color: white;
+}
+
+main{
+    height: 100%;
+    box-sizing: border-box  ;
+    width: 100%;
+    display: grid;
+    gap: 0.4rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+main > *{ 
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+header{
+    background-color: rgb(186, 158, 4);
+    grid-column: 1/-2;
+}
+
+.boxes:nth-child(2){
+    background-color: red;
+}
+
+.boxes:nth-child(3){
+    background-color: blue;
+    grid-row: 3/4;
+}
+.boxes:nth-child(4){
+    background-color: green;
+}
+.boxes:nth-child(5){
+    background-color: navy;
+}
+.boxes:nth-child(6){
+    background-color: pink;
+    grid-row: 1/-1y;
+}

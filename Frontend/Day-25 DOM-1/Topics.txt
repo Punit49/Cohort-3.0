@@ -1,0 +1,7 @@
+How Broswer gets and converts html to object
+WHat is DOM, BOM, WebAPI's
+TOkenization
+console.dir
+nodelist vs array
+DOM archeitecture
+selectors

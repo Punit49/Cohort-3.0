@@ -1,0 +1,4 @@
+Events
+event bubbling and capturing, 
+inline events, 
+CRUD operations on displaying  
