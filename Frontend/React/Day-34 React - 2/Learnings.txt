@@ -1,0 +1,7 @@
+What heppend when we npm run dev
+Babel
+react/vite files structure
+flow of execution of files in react
+What is jsx, need of jsx, we dont have jsx and babel then we have to write long raw react.createElement again and again. 
+hmr,
+components, props - blank object - parameter in function if not given - then will undefined, but components will be {}.

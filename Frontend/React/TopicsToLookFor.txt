@@ -1,0 +1,18 @@
+1. Why react and not angular, vue or other
+2. SPA vs MPA
+3. React Elements
+4. HTML SEO
+
+5. React lifecycle methods
+6. Diff between functional and class components
+7. What are Hook?
+8. useEffect return functionalities
+9. How is react fast, how is DOM manipulation with Virtual DOM fast -
+batches all updates which create fewer re-renders and only 1 re-render
+whereas by the document.get we will have to re-render again and again
+10. Difference between library and framework.
+11. Why react over others
+12. type = module ?
+13. strict mode in react
+14. CRA vs Vite
+15. Component lifecycle

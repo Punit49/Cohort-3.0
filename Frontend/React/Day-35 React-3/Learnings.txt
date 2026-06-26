@@ -1,0 +1,5 @@
+import, export, hooks - useState, 
+
+
+useState returns array, re renders parent comp, does not re renders if state is same.
+
