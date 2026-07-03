@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
+import { useState } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+    let [count, setCount] = useState(0);
+    // const [flag, setFlag] = useState(true);
+    
+    // console.log(flag);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    // console.log(count);
+
+    return (
+        // The Problem
+        // <div>
+        //   <h1>count - {count}</h1>
+        //   <button onClick={() => {
+        //     count++;
+        //     App();
+        //     console.log(count);
+        //   }}>Increase Count</button>
+        // </div>
+
+        // The solution - useState() 
+        // <div>
+        //   <h1>count - {count}</h1>
+        //   <button onClick={() => {
+        //     setCount(count+1);
+        //     console.log(count);
+        //   }}>Increase Count</button>
+        //   <br />
+
+        //   <button onClick={() => {
+        //     setFlag(false);
+        //   }}>Change Boolean</button>
+        // </div>
+
+        // Calling setCOunt multiple times - 
+
+        // Clouser Stales -
+        <div>
+            <h1>count - {count}</h1>
+            <button onClick={() => {
+              setTimeout(() => {
+                setCount(prev => prev + 10); 
+              }, 4000);
+
+              setCount(20);
+            }}>Increase Count</button>
+        </div>
+    )
 }
 
-export default App
+export default App;

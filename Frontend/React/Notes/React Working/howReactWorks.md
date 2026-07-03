@@ -17,7 +17,3 @@ When state or props change, React doesn't update the real DOM directly. Instead 
 4. Updates only those parts in the real DOM
 
 This comparison process is called Reconciliation.
-
-<!-- Phase - 1 of reconciliation -->
-Render Phase - In 
-

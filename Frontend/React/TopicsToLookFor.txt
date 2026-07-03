@@ -2,7 +2,7 @@
 2. SPA vs MPA
 3. React Elements
 4. HTML SEO
-
+    Batching
 5. React lifecycle methods
 6. Diff between functional and class components
 7. What are Hook?
@@ -16,3 +16,6 @@ whereas by the document.get we will have to re-render again and again
 13. strict mode in react
 14. CRA vs Vite
 15. Component lifecycle
+16. Bundlers - esbuild vs rollup
+17. Scope Chain
+18. Shadowing
