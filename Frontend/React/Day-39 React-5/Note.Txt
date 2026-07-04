@@ -1,0 +1,14 @@
+What's happening -
+
+user.name = "Devendra";  // mutates the SAME object in memory
+setUser(user);            // passes back that SAME reference
+
+React decides whether to re-render by comparing the old state and new state with Object.is() — essentially a reference check for objects. Since user still points to the exact same object you had before (you just changed a property on it), React sees oldUser === newUser as true and concludes "nothing changed," so it skips the re-render entirely. The state value did technically change, but the reference didn't — and reference is all React checks.
+
+-- Primitive values are always immutable, that's why user++ wasnt worked
+
+num++ vs user.name = "Devendra"
+Objects are shared by reference, so mutating one can "leak" into future renders since it's literally the same object sitting in React's memory. Primitives like numbers and strings are copied by value, so reassigning your local let num only affects that one render's throwaway copy — the next render always starts fresh from whatever React has stored, wiping out your change completely.
+
+There are three approaches for handling input in react, 1. jitne inputs utni states, 
+2. single object ke andar sab rkho and dot se update kro, 3.

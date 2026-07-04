@@ -19,3 +19,4 @@ whereas by the document.get we will have to re-render again and again
 16. Bundlers - esbuild vs rollup
 17. Scope Chain
 18. Shadowing
+19. How fibre and hmr working together
