@@ -20,3 +20,8 @@ whereas by the document.get we will have to re-render again and again
 17. Scope Chain
 18. Shadowing
 19. How fibre and hmr working together
+20. How react router works
+21. What is localhost
+
+
+22. Synthetic Base Events
