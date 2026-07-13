@@ -1,7 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { nanoid } from 'nanoid';
 
-const Form = ({ setUsers, setIsFormVisible }) => {
+const Form = ({ Users, setUsers, setIsFormVisible, updateUser }) => {
 
   console.log("Form Rendering...");
 
@@ -11,16 +12,26 @@ const Form = ({ setUsers, setIsFormVisible }) => {
     reset,
     formState: { errors },
   } = useForm({
+    defaultValues: updateUser,
     mode: "onTouched"
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    let userData;
+    if(updateUser){
+      setUsers((prev) => {
+        prev.map((val) => {
+            return val.id === updateUser.id ? {...data} : val;
+        })
+      })
+    } else {
+      userData = [...Users, {...data, id: nanoid()}];
+      setUsers(userData);
+    }
     reset();
-    setUsers(prev => [...prev, data]);
     setIsFormVisible(prev => !prev);
-  }
-
+    localStorage.setItem("users", JSON.stringify(userData));
+}
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="text-black flex flex-col gap-3 w-80 p-4 border border-black rounded-2xl m-auto mt-10">
       <input
