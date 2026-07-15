@@ -17,7 +17,6 @@ const Form = ({ Users, setUsers, setIsFormVisible, updateUser }) => {
   });
 
   const onSubmit = (data) => {
-    let userData;
     if(updateUser){
       setUsers((prev) => {
         prev.map((val) => {
@@ -25,11 +24,12 @@ const Form = ({ Users, setUsers, setIsFormVisible, updateUser }) => {
         })
       })
     } else {
-      userData = [...Users, {...data, id: nanoid()}];
+      let userData = [...Users, data, id: nanoid()];
       setUsers(userData);
     }
     reset();
     setIsFormVisible(prev => !prev);
+    console.log("my userdata - ",userData);
     localStorage.setItem("users", JSON.stringify(userData));
 }
   return (
