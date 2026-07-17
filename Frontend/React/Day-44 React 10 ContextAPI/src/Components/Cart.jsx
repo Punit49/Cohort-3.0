@@ -1,18 +1,26 @@
-import React from 'react'
-import ProductCard from './ProductCard'
+import React, { useContext } from 'react'
 import CartCard from './CartCard'
+import { MyStore } from '../context/ProductContext'
 
-const Cart = ({cartItems}) => {
+const Cart = () => {
+
+  const {cartItems} = useContext(MyStore);
+
   return (
-    <div className="p-8 flex flex-col gap-10">
-        <h1 className='text-3xl font-bold'>Cart Items</h1>
-      {cartItems ? 
-        <div className='grid grid-cols-5 gap-4'>
-            {cartItems.map((p) => {
+    <div className="p-3">
+      {
+        cartItems.length === 0 ? (
+          <h1>Cart is Empty</h1>
+        ) : (
+          <div className='flex flex-wrap gap-4'>
+            {
+              cartItems.map((p) => {
                 return <CartCard key={p.id} item={p} />
-            })}
-        </div>
-      : <h1 className='text-3xl font-bold'>Cart is Empty, Shop More</h1> }
+              })
+            }
+          </div>
+        )
+      }  
     </div>
   )
 }

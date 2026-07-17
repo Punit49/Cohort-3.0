@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MyStore } from "../context/ProductContext";
 
-const Navbar = ({setIsCartOpen}) => {
+const Navbar = () => {
+
+
+  const {setIsCartOpen} = useContext(MyStore);
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-sm">
@@ -12,7 +16,7 @@ const Navbar = ({setIsCartOpen}) => {
 
         <ul className="flex items-center gap-8 text-gray-700 font-medium">
           <li>
-            <button className="cursor-pointer transition hover:text-blue-600" onClick={() => setIsCartOpen(false)}>
+            <button onClick={() => setIsCartOpen(false)} className="cursor-pointer transition hover:text-blue-600">
               Home
             </button>
           </li>

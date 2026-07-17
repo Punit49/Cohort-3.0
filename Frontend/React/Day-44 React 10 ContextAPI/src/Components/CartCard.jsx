@@ -2,7 +2,7 @@ import React from "react";
 
 const CartCard = ({ item }) => {
   return (
-    <div className="flex items-start gap-6 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition flex-col">
+    <div className="flex items-start gap-6 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition flex-col w-70">
 
       {/* Product Image */}
       <div className="h-28 w-28 flex-shrink-0 rounded-xl bg-gray-100 flex items-center justify-center">

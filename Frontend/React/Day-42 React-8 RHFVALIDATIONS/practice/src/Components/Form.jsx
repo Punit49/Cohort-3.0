@@ -1,21 +1,29 @@
 import React from "react";
-import {useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { nanoid } from "nanoid";
 
-const Form = ({setIsFormVisible, setUsers, users}) => {
+const Form = ({setIsFormVisible, setUsers, users, updateUser, setUpdateUser}) => {
 
   const {register, formState: {errors}, reset, handleSubmit} = useForm({
-    mode: "onTouched"
+    mode: "onTouched", 
+    defaultValues: updateUser
   });
-
-  console.log(errors);
-
+  
   function onSubmit(data){
-    console.log(data);
-    setIsFormVisible(false);
-    let usersData = [...users, data];
-    setUsers(usersData);
-    localStorage.setItem("users", JSON.stringify(usersData));
-    reset();
+      if(updateUser){
+        let updatedUsers = users.map((user) => {
+          return updateUser.id === user.id ? data : user;
+        });
+        setUsers(updatedUsers);
+        localStorage.setItem("users", JSON.stringify(updatedUsers));
+        setUpdateUser(null);
+      } else {
+        let usersData = [...users, {...data, id: nanoid()}];
+        setUsers(usersData);
+        localStorage.setItem("users", JSON.stringify(usersData));
+      }
+      reset();
+      setIsFormVisible(false);
   }
 
   return (
@@ -105,7 +113,7 @@ const Form = ({setIsFormVisible, setUsers, users}) => {
           type="submit"
           className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-semibold transition"
         >
-          Create User
+          Submit
         </button>
       </form>
     </div>

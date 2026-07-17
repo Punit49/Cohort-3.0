@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MyStore } from "../context/ProductContext";
 
-const ProductCard = ({ product, setCartItems }) => {
+const ProductCard = ({ product }) => {
+
+  const {setCartItems} = useContext(MyStore);
+
   return (
-    <div className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+    <div className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl w-80">
 
       {/* Image */}
       <div className="relative overflow-hidden bg-gray-100 h-72">
@@ -66,7 +70,7 @@ const ProductCard = ({ product, setCartItems }) => {
         {/* Buttons */}
         <div className="flex gap-3 pt-2">
 
-          <button onClick={() => setCartItems((prev) => [...prev, product])} className="flex-1 rounded-xl bg-black py-3 font-medium text-white transition hover:bg-gray-800">
+          <button className="flex-1 rounded-xl bg-black py-3 font-medium text-white transition hover:bg-gray-800" onClick={() => setCartItems(prev => [...prev, product])}>
             Add to Cart
           </button>
         </div>
