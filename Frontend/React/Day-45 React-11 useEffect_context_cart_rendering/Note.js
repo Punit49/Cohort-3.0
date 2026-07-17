@@ -1,0 +1,2 @@
+// ? Agar parent pr re rendering (state change etc) hogi to uske saare child bhi re render honge.
+// ? useState is written inside context file so first contextProvider will re render, coz state is written there, and then app and other child of it.
