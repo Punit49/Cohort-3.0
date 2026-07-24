@@ -10,7 +10,6 @@ const Navbar = () => {
           <NavLink to={"/about"}>About</NavLink>
           {/* <NavLink to={"/products"}>Products</NavLink>  */}
       </nav>
-      <button className='bg-blue-600 px-3 py-1 rounded'>Create User</button>
     </div>
   )
 }
