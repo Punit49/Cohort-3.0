@@ -25,10 +25,8 @@ const Login = () => {
         localStorage.setItem("user", JSON.stringify(isUser));
         console.log(data);
         reset();
-        return navigate("/");
+        return navigate("/main");
     }
-
-
 
     return (
         <div className="min-h-screen bg-[#0F0F0F] flex items-center justify-center px-6">

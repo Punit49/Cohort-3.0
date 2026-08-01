@@ -8,41 +8,40 @@ import AuthLayout from '../Layouts/AuthLayout';
 import Login from '../components/Login';
 import Register from '../components/Register';
 import ProtectedRoutes from './ProtectedRoutes';
+import AuthProtection from './AuthProtection';
 
 const AppRoutes = () => {
 
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <ProtectedRoutes>
-                        <MainLayout />
-                    </ProtectedRoutes>,
+            element: <AuthProtection />, // auth protection becomes parent and will accept child from below
             children: [
                 {
                     path: "",
-                    element: <Home />
-                }, 
-                {
-                    path: "about",
-                    element: <About />
-                }, 
-                {
-                    path: "contact",
-                    element: <Contact />
-                }
-            ]
-        },
-        {
-            path: "/",
-            element: <AuthLayout />,
-            children: [
-                {
-                    path: "login",
                     element: <Login />
                 },
                 {
                     path: "register",
                     element: <Register />
+                }
+            ]
+        },
+        {
+            path: "/main",
+            element: <ProtectedRoutes />,
+            children: [
+                {
+                    path: "",
+                    element: <Home />
+                },
+                {
+                    path: "about",
+                    element: <About />
+                },
+                {
+                    path: "contact",
+                    element: <Contact />
                 }
             ]
         }

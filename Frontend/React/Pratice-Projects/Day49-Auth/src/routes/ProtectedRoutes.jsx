@@ -1,17 +1,18 @@
 import {React, useContext} from 'react'
 import { MyStore } from '../context/AppContext'
-import { Navigate } from 'react-router';
+import { Navigate, Outlet } from 'react-router';
+import Navbar from '../components/Navbar';
 
-const ProtectedRoutes = ({ children }) => {
+
+const ProtectedRoutes = () => {
 
     const { loggedInUser } = useContext(MyStore);
 
-    if(loggedInUser) return children;
-
-    else {
+    if(!loggedInUser){
         alert("Login First");
-        return <Navigate to={"/login"} />
+        return <Navigate to={"/"} />
     }
+    return <Outlet />
 }
 
 export default ProtectedRoutes

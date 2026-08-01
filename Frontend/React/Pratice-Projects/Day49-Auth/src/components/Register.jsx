@@ -5,6 +5,7 @@ import { MyStore } from "../context/AppContext";
 
 
 const Register = () => {
+
     const navigate = useNavigate();
 
     const { reset, register, formState: {errors}, handleSubmit } = useForm({
@@ -14,6 +15,11 @@ const Register = () => {
     const { registeredUsers, setRegisteredUsers } = useContext(MyStore);
 
     function handleForm(data){
+        const isUser = registeredUsers.find((u) => u.email === data.email);
+        if(isUser) {
+          alert("You already have an account, please login");
+          return navigate("/login");
+        }
         const myUser = [...registeredUsers, data];
         setRegisteredUsers(myUser);
         localStorage.setItem("registeredUsers", JSON.stringify(myUser));
