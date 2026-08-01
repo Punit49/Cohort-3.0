@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { axiosInstance } from '../config/axiosInstance';
+import { axiosInstance } from './config/axiosInstance';
 
 const App = () => {
 

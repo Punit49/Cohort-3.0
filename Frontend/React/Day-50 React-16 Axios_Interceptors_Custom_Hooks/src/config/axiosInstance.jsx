@@ -4,6 +4,8 @@ export const axiosInstance = axios.create({
     baseURL: "https://fakestoreapi.com"
 });
 
+console.dir(axiosInstance);
+
 axiosInstance.interceptors.response.use(
     (response) => {
         console.log(response);
@@ -16,6 +18,7 @@ axiosInstance.interceptors.response.use(
 axiosInstance.interceptors.request.use(
     (config) => {
         console.log(config);
+        return config;
     }, (error) => {
         console.error(error);
     }
