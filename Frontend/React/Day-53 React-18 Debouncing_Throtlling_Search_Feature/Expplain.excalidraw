@@ -1,0 +1,51 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor",
+  "elements": [
+    {
+      "id": "x0r89mXt-C62YcLjXbYFV",
+      "type": "text",
+      "x": 2485.6496104678718,
+      "y": -3914.272298999376,
+      "width": 2858.279815673828,
+      "height": 5551.1684940724,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "index": "ab",
+      "roundness": null,
+      "seed": 577247001,
+      "version": 115,
+      "versionNonce": 1690817337,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1785755000425,
+      "link": null,
+      "locked": false,
+      "text": "User types\n      │\n      ▼\nsetSearchQuery()\n      │\n      ▼\nReact schedules render\n      │\n      ▼\nComponent renders\n      │\n      ▼\nReact commits DOM updates\n      │\n      ▼\nRun previous cleanup\n(clearTimeout)\n      │\n      ▼\nRun new useEffect\n      │\n      ▼\nCreate new timer (2 seconds)\n      │\n      ▼\nUser types again?\n   │            │\n Yes            No\n │              │\n ▼              ▼\nCleanup     Timer finishes\n │              │\n ▼              ▼\nCancel timer  Browser queues callback\n                 │\n                 ▼\n           filterSearchResults()",
+      "fontSize": 120.02526473670049,
+      "fontFamily": 5,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "User types\n      │\n      ▼\nsetSearchQuery()\n      │\n      ▼\nReact schedules render\n      │\n      ▼\nComponent renders\n      │\n      ▼\nReact commits DOM updates\n      │\n      ▼\nRun previous cleanup\n(clearTimeout)\n      │\n      ▼\nRun new useEffect\n      │\n      ▼\nCreate new timer (2 seconds)\n      │\n      ▼\nUser types again?\n   │            │\n Yes            No\n │              │\n ▼              ▼\nCleanup     Timer finishes\n │              │\n ▼              ▼\nCancel timer  Browser queues callback\n                 │\n                 ▼\n           filterSearchResults()",
+      "autoResize": false,
+      "lineHeight": 1.25
+    }
+  ],
+  "appState": {
+    "gridSize": 20,
+    "gridStep": 5,
+    "gridModeEnabled": false,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}
