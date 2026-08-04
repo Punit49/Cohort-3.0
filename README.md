@@ -100,10 +100,8 @@ Consistency > Motivation.
 
 # 🌍 Connect With Me
 
-* 💼 LinkedIn: 
-* 🐦 Twitter/X: 
-* 🌐 Portfolio: 
-* 📧 Email: 
+* 💼 LinkedIn: www.linkedin.com/in/punitsahu49
+* 📧 Email: therealpunit5@gmail.com
 
 ---
 
