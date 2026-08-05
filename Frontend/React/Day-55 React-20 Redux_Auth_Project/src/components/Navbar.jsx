@@ -1,0 +1,45 @@
+import {
+  Search,
+  ShoppingCart,
+  Heart,
+  User,
+  Menu,
+} from "lucide-react";
+import { NavLink } from "react-router";
+
+const Navbar = () => {
+    return (
+        <header className="sticky top-0 z-50 border-b border-neutral-800 bg-black/80 backdrop-blur-md">
+        <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6">
+
+            <NavLink to={""} className="text-3xl font-black tracking-widest text-white cursor-pointer">
+                TRENDZY
+            </NavLink>
+            
+            <nav className="flex items-center gap-10 ">
+                <NavLink className={({isActive}) => `
+                    text-sm font-medium text-neutral-300 transition hover:text-red-500
+                    ${isActive && "text-red-600"}
+                `} to={""}>Home</NavLink>
+                <NavLink className={({isActive}) => `
+                    text-sm font-medium text-neutral-300 transition hover:text-red-500
+                    ${isActive && "text-red-600"}
+                `} to={"/about"}>About</NavLink>
+                <NavLink className={({isActive}) => `
+                    text-sm font-medium text-neutral-300 transition hover:text-red-500
+                    ${isActive && "text-red-600"}
+                `} to={"/contact"}>Contact</NavLink>
+            </nav>
+
+            <div className="flex items-center gap-3">
+
+            <button className="rounded-xl border border-neutral-800 p-2.5 text-neutral-300 transition hover:border-red-500 hover:text-red-500 block">
+                <User size={20} />
+            </button>
+            </div>
+        </div>
+        </header>
+    );
+};
+
+export default Navbar;
