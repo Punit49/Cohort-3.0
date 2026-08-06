@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../features/authSlice";
+import { login, logout } from "../features/authSlice";
 import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
-const AuthHook = () => {
+const useAuth = () => {
   const navigate = useNavigate();
   const { user, isAuthenticated } = useSelector((store) => store.auth);
+  const [registeredUsers, setRegisteredUsers] = useState(JSON.parse(localStorage.getItem("registeredUsers")) || []);
   const dispatch = useDispatch();
-  console.log("USer logged in - ", user);
 
   const {
     register,
@@ -20,11 +21,43 @@ const AuthHook = () => {
   });
 
   const handleLogin = (userData) => {
-    console.log(userData);
-    dispatch(login(userData));
+    const user = registeredUsers.find((u) => {
+      return u.email === userData.email && u.password === userData.password;
+    });
+
+    if(!user){
+      toast.error("Email or Password is incorrect");
+      reset();
+      return;
+    }
+
+    dispatch(login(user));
+    localStorage.setItem("user", JSON.stringify(user));
+    reset();
+    toast.success("User Logged IN");
+    return navigate("/");
   };
 
-  const handleRegister = (userData) => {};
+  const handleLogout = () => {
+    dispatch(logout());
+  }
+
+  const handleRegister = (userData) => {
+    const isUserExists = registeredUsers.find((u) => {
+      return u.email === userData.email;
+    });
+
+    if(isUserExists){
+      toast.error("An Account with this email already exists! Please Login");
+      reset();
+      return;
+    }
+
+    const user = [...registeredUsers, userData];
+    setRegisteredUsers(user);
+    localStorage.setItem("registeredUsers", JSON.stringify(user));
+    return navigate("/auth/login");
+  };
 
   return {
     register,
@@ -34,7 +67,8 @@ const AuthHook = () => {
     handleLogin,
     handleRegister,
     navigate,
+    handleLogout
   };
 };
 
-export default AuthHook;
+export default useAuth;

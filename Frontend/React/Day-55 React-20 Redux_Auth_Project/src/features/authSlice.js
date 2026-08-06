@@ -1,10 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const hydrateUser = () => {
+    try {
+        const user = localStorage.getItem("user");
+        return user ? JSON.parse(user) : null
+    } catch {
+        return null;
+    }
+}
+
+const storedUser = hydrateUser();
+
 const authSlice = createSlice({
     name: "auth",
     initialState: {
-        user: null,
-        isAuthenticated: false
+        user: storedUser,
+        isAuthenticated: !!storedUser
     },
     reducers: {
         login: (state, action) => {

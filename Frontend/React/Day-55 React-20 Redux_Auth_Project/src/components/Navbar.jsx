@@ -5,9 +5,15 @@ import {
   User,
   Menu,
 } from "lucide-react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router";
+import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
+
+    const { user } = useSelector((store) => store.auth);
+    const { handleLogout } = useAuth();
+
     return (
         <header className="sticky top-0 z-50 border-b border-neutral-800 bg-black/80 backdrop-blur-md">
         <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6">
@@ -32,6 +38,16 @@ const Navbar = () => {
             </nav>
 
             <div className="flex items-center gap-3">
+
+            <div className="text-red-400 text-lg flex gap-2">
+                {
+                    user && <h1>Hey {user.name}</h1>
+                }
+            </div>
+
+            {
+                user && <button onClick={() => handleLogout()}>Logout</button>
+            }
 
             <button className="rounded-xl border border-neutral-800 p-2.5 text-neutral-300 transition hover:border-red-500 hover:text-red-500 block">
                 <User size={20} />
