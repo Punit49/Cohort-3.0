@@ -6,14 +6,17 @@ import Filter from "../components/filter"
 
 const Shop = () => {
 
-    const { isPending, data, filteredProducts } = useProducts();
+    const { filteredProducts, filterProducts, isLoading } = useProducts();
+
+    console.log(filteredProducts);
 
     return (
         <div>
-            <Filter />
+            <Filter filterProducts={filterProducts}/>
+
             <div>
                 {
-                    isPending ? (
+                    isLoading ? (
                         <div className='grid grid-cols-4 gap-5'>
                             {Array.from({ length: 8 }).map((_, i) => {
                                 return <ProductCardSkeleton key={i} />
@@ -21,7 +24,7 @@ const Shop = () => {
                         </div>
                     ) : ( 
                         <div className='grid grid-cols-4 gap-5'>
-                            { data.map((p) => {
+                            { filteredProducts.map((p) => {
                                 return <ProductCard key={p.id} product={p} />
                             }) }
                         </div>

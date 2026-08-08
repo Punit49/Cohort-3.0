@@ -1,32 +1,45 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useEffect, useState } from 'react'
-import { getProducts } from '../api/productsAPI';
+import { useQuery } from "@tanstack/react-query";
+import React, { useCallback, useEffect, useState } from "react";
+import { getProducts } from "../api/productsAPI";
+
+// export const useProducts = () => {
+
+//     const {data, error, isPending} = useQuery({
+//         queryKey: ["products"],
+//         queryFn: getProducts,
+//     });
+
+//     console.log(data); // Returns proxy Object;
+//     return {data, error, isPending}
+// }
 
 export const useProducts = () => {
+    const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-    const [filteredProducts, setFilteredProducts] = useState(null);
-
-    const {data, error, isPending} = useQuery({
-        queryKey: ["products"], 
-        queryFn: getProducts,
-    });
-
-    const getFilterProducts = (searchParams) => {
-        const updatedProducts = data.filter((p) => {
-            p.title.toLowerCase().includes(searchParams.toLowerCase());
-        });
-        if(updatedProducts){
-            setFilteredProducts(updatedProducts);
-        } else{
-            setFilteredProducts(data);
-        }
+    const getAllProducts = async () => {
+        const data = await getProducts();
+        setProducts(data);
+        setFilteredProducts(data);
+        setIsLoading(false);
+        console.log(data)
     }
 
+    const filterProducts = useCallback((searchParams) => {
+        const updatedProducts = products.filter((p) => {
+            return p.title.toLowerCase().includes(searchParams.toLowerCase());
+        })
+        setFilteredProducts(updatedProducts);
+    }, [products]);
+
+    console.log("Filtered Products - ", filteredProducts);
+
     useEffect(() => {
-        getFilterProducts();
-    });
+        getAllProducts();
+    }, []);
 
-    console.log(data); // Returns proxy Object;
-    return {data, error, isPending, getFilterProducts, filteredProducts}
+    return {
+        isLoading, filteredProducts, filterProducts
+    }
 }
-

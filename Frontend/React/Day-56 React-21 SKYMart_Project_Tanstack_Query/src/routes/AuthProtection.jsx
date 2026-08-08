@@ -9,7 +9,7 @@ const AuthProtection = () => {
 
   useEffect(() => {
     if(user){
-      toast.error("You already have account, Logout first");
+      toast.error("You already have account, Logout first"); // this is the sideeffect which was causing error
     }
   }, []);
 

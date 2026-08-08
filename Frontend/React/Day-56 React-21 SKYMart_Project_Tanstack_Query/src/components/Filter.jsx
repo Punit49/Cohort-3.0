@@ -1,10 +1,7 @@
 import React from "react";
 import { Search, SlidersHorizontal } from "lucide-react";
-import { useProducts } from "../hooks/useProducts";
 
-const Filter = () => {
-
-    const { getFilterProducts } = useProducts();
+const Filter = ({filterProducts}) => {
 
     return (
         <div className="mb-8 rounded-2xl border border-red-900/20 bg-gradient-to-r from-zinc-950 via-black to-zinc-950 p-5 shadow-xl">
@@ -17,7 +14,7 @@ const Filter = () => {
                     />
 
                     <input
-                        onChange={(e) => getFilterProducts(e.target.value)}
+                        onChange={(e) => {filterProducts(e.target.value)}}
                         type="text"
                         placeholder="Search for products..."
                         className="w-full rounded-xl border border-zinc-700 bg-zinc-900 py-3 pl-12 pr-4 text-white placeholder:text-zinc-500 outline-none transition-all focus:border-red-500 focus:ring-2 focus:ring-red-500/20"

@@ -15,7 +15,7 @@ const authSlice = createSlice({
     name: "auth",
     initialState: {
         user: storedUser,
-        isAuthenticated: !!storedUser
+        isAuthenticated: !!storedUser // false hai to false, true hai to true
     },
     reducers: {
         login: (state, action) => {

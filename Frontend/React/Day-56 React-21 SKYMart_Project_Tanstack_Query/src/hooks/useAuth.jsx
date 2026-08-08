@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login, logout } from "../features/authSlice";
 import { useNavigate } from "react-router";
 import toast from "react-hot-toast";
 
 const useAuth = () => {
   const navigate = useNavigate();
-  const { user, isAuthenticated } = useSelector((store) => store.auth);
   const [registeredUsers, setRegisteredUsers] = useState(JSON.parse(localStorage.getItem("registeredUsers")) || []);
   const dispatch = useDispatch();
 
