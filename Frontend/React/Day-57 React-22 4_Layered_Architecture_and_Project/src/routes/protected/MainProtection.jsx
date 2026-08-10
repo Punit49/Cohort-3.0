@@ -1,8 +1,18 @@
 import React from 'react'
-import { Outlet } from 'react-router'
+import { useSelector } from 'react-redux'
+import { Navigate, Outlet } from 'react-router'
 
 const MainProtection = () => {
-  return <Outlet />
+
+    const { isAuthenticated, isLoading } = useSelector((store) => store.auth);
+
+    if(isLoading) return <h1>Loading...</h1>
+
+    if(!isAuthenticated){
+      return <Navigate to={'/auth/login'} />
+    }
+
+    return <Outlet />
 }
 
 export default MainProtection
