@@ -8,7 +8,6 @@ import toast from "react-hot-toast";
 const useAuthHook = () => {
 
     const navigate = useNavigate();
-
     const dispatch = useDispatch();
     
     const { register, reset, formState: {errors}, handleSubmit } = useForm({
