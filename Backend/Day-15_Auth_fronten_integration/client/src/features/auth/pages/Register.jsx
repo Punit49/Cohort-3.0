@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router";
+import useApi from "../hooks/useApi";
+import { MyStore } from "../../../context/ContextProvider";
 
 const Register = () => {
   const {
@@ -12,6 +14,20 @@ const Register = () => {
     mode: "onTouched",
   });
 
+  const API = useApi();
+  const {setAccessToken, setUser} = useContext(MyStore); 
+
+  const registerHandler = async (data) => {
+    try {
+      const {name, email, password } = data;
+      const res = await API.post('/api/auth/register', {name, email, password});
+      setAccessToken(res.data.accessToken);
+      setUser(res.data.data.user);
+    } catch (error) {
+      console.error("Error in Register handler - ", error.message);
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gray-950 flex items-center justify-center px-4 font-sans text-gray-200">
       <div className="w-full max-w-md bg-gray-900 border border-gray-800 rounded-2xl shadow-xl p-8">
@@ -19,7 +35,7 @@ const Register = () => {
             <h2 className="text-3xl font-bold text-white mb-2">Create an account</h2>
             <p className="text-gray-400 text-sm">Enter your details to get started.</p>
         </div>
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit(registerHandler)}>
             <div>
                 <label className="block text-sm font-medium text-gray-300 mb-1">Name</label>
                 <input

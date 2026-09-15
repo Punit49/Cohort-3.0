@@ -5,7 +5,6 @@ import Register from "../features/auth/pages/Register"
 import Profile from "../features/profile/Profile"
 
 const AppRoutes = () => {
-
     const router = createBrowserRouter([
         {
             path: '/',

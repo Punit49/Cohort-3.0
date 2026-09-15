@@ -1,13 +1,14 @@
-import { createContext, useState } from "react"
+import React, { createContext, useState } from 'react'
 
-export const MyStore = createContext(); 
+export const MyStore = createContext();
 
 export const ContextProvider = ({children}) => {
-  const [user, setUser] = useState(null);
+
   const [accessToken, setAccessToken] = useState(null);
+  const [user, setUser] = useState(null);
 
   const value = {
-    user, setUser, accessToken, setAccessToken
+    accessToken, setAccessToken, user, setUser
   }
 
   return (

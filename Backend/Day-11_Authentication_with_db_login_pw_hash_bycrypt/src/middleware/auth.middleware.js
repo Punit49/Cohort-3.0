@@ -16,7 +16,7 @@ export const tokenHandler = async (req, res, next) => {
         const data = jwt.verify(token, SECRET_KEY); // now it will give invalid signature error if token is wrong
         console.log(data);
         const user = await UserModel.findById(data.id);
-        console.log(user);
+        console.log(user); 
         req.user = user;
         next();
     } catch (error) {
